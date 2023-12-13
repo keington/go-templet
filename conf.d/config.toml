@@ -1,0 +1,87 @@
+[http]
+host = ""
+port = "8099"
+context_path = "/api/v1"
+con_pool = 200
+
+[http.auth]
+# secret key.
+# This value is used when generating jwt token. Please do not use the default one.
+secret_key = "abf7c800bf1342bda17eafc91ddee822d1f2b7080e72"
+# unit: min
+access_expired = 30
+# unit: min
+refresh_expired = 60
+
+[gateway]
+# service_name
+# The format is [prefix].[service name].[ending]
+# prefix is fixed lark.
+# ending is fixed svc.
+# It is recommended not to change this configuration!!!
+service_name = "lark.core.svc"
+# gaetwaty address.
+# Note: The gateway address must be the actual IP address,
+# not 127.0.0.1 or localhost, otherwise the service will not be able to find the gateway during the calling process.
+address = "192.168.10.102"
+# gateway port
+port = 50052
+
+[gRPC.tls]
+# tls
+# support: true, false.
+# default: false
+tls_enabled = true
+# cert
+tls_cert = "conf/certs/server.crt"
+# key
+tls_key = "conf/certs/server.key"
+
+[database]
+# support mysql, postgres
+type = "mysql"
+# postgres: DSN="host=127.0.0.1 port=5432 user=root dbname=lark_v1 password=1234 sslmode=disable"
+dsn = "root:123456@tcp(localhost:3306)/lark_v1?charset=utf8mb4&parseTime=True&loc=Local"
+# max open connections
+max_open_conn = 200
+# max idle connections
+max_idle_conn = 100
+# unit: s
+# The maximum time a connection can be reused
+max_life_time = 5000
+#
+max_idle_time = 5000
+# log enabled: true
+#              false
+# The default is true. If you want to see the SQL statement, you can set it to true.
+log_enabled = true
+
+[redis]
+# default: standalone. support cluster, sentinel
+type = "standalone"
+# address, ip:port or ip1:port,ip2:port for cluster and sentinel(sentinel addresss)
+address = "47.109.18.216:9379"
+# username = ""
+password = "N8pLVxb7p"
+db = 0
+# Mastername for sentinel type
+# master_name = "mymaster"
+# sentinel_username = ""
+# sentinel_password = ""
+
+[etcd]
+endpoint = ["47.109.18.216:42379"]
+# If ETCD does not have a user, it can be left blank, but this is not recommended in a production environment.
+username = "root"
+# If ETCD does not have a password, it can be left blank, but this is not recommended in a production environment.
+password = "N8pLVxb7p"
+
+[etcd.tls]
+# Whether to enable TLS
+enabled = false
+# ca
+ca = "conf/certs/ca.crt"
+# cert
+cert = "conf/certs/server.crt"
+# key
+key = "conf/certs/server.key"

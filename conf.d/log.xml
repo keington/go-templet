@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log>
+    <!--log print mode:
+        prod: Standard output and add caller information
+        dev: No caller information is output -->
+    <mode>dev</mode>
+    <path>logs/</path>
+    <name>lark</name>
+    <!--log level: DEBUG INFO WARN ERROR-->
+    <level>DEBUG</level>
+    <maxSize>50</maxSize>
+    <maxBackups>15</maxBackups>
+    <maxAge>1</maxAge>
+    <!--compress log:
+        true: Use gzip to compress the split logs
+        false:Do not compress logs-->
+    <compress>true</compress>
+</log>

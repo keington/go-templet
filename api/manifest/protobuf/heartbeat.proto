@@ -1,0 +1,23 @@
+// 使用的语法协议版本 proto3
+syntax = "proto3";
+package protobuf;
+
+// 定义生成go文件的package位置和名称
+option go_package = "./protobuf;protobuf";
+
+// 定义Greeter服务
+service System {
+  rpc HeartBeat (HeartBeatReq) returns (HeartBeatRep) {}
+}
+
+// 定义请求对象
+message HeartBeatReq {
+  string message = 1;
+}
+
+// 定义返回对象
+message HeartBeatRep {
+  string message = 1;
+}
+
+// protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative api/manifest/protobuf/core/heartbeat.proto
