@@ -15,7 +15,7 @@ require (
 	go.etcd.io/etcd/client/v3 v3.5.10
 	go.uber.org/automaxprocs v1.5.3
 	google.golang.org/grpc v1.59.0
-	google.golang.org/protobuf v1.31.0
+	google.golang.org/protobuf v1.33.0
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 	gorm.io/driver/mysql v1.5.2
 	gorm.io/driver/postgres v1.5.4
